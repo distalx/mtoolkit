@@ -6,7 +6,7 @@ Meteor toolkit
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/mtoolkit.svg)](https://npmjs.org/package/mtoolkit)
 [![Downloads/week](https://img.shields.io/npm/dw/mtoolkit.svg)](https://npmjs.org/package/mtoolkit)
-[![License](https://img.shields.io/npm/l/mtoolkit.svg)](https://github.com/node/mtoolkit/blob/master/package.json)
+[![License](https://img.shields.io/npm/l/mtoolkit.svg)](https://github.com/node/mtoolkit/blob/main/package.json)
 
 <!-- toc -->
 * [Usage](#usage)
