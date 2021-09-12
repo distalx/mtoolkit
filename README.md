@@ -29,7 +29,7 @@ USAGE
 # Commands
 <!-- commands -->
 * [`mtk help [COMMAND]`](#mtk-help-command)
-* [`mtk t [FILE]`](#mtk-t-file)
+* [`mtk t T_NAME [T_NS]`](#mtk-t-t_name-t_ns)
 
 ## `mtk help [COMMAND]`
 
@@ -48,13 +48,17 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.3/src/commands/help.ts)_
 
-## `mtk t [FILE]`
+## `mtk t T_NAME [T_NS]`
 
-describe the command here
+create a template
 
 ```
 USAGE
-  $ mtk t [FILE]
+  $ mtk t T_NAME [T_NS]
+
+ARGUMENTS
+  T_NAME  template name
+  T_NS    template namespace
 
 OPTIONS
   -f, --force
@@ -62,5 +66,5 @@ OPTIONS
   -n, --name=name  name to print
 ```
 
-_See code: [src/commands/t.ts](https://github.com/node/mtoolkit/blob/v0.0.1/src/commands/t.ts)_
+_See code: [src/commands/t.ts](https://github.com/distalx/mtoolkit/blob/v0.0.1/src/commands/t.ts)_
 <!-- commandsstop -->

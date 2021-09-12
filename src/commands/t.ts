@@ -45,17 +45,17 @@ export default class T extends Command {
     let t_list: any, t_path: string;
     if (t_ns == undefined) {
       t_list = {
-        html: `client/template/${t_name}/${t_name}.html`,
-        js: `client/template/${t_name}/${t_name}.js`,
+        html: `client/templates/${t_name}/${t_name}.html`,
+        js: `client/templates/${t_name}/${t_name}.js`,
       };
-      t_path = `client/template/${t_name}`;
+      t_path = `client/templates/${t_name}`;
     } else {
       t_list = {
-        html: `client/template/${t_ns}/${t_name}.html`,
-        js: `client/template/${t_ns}/${t_name}.js`,
+        html: `client/templates/${t_ns}/${t_name}.html`,
+        js: `client/templates/${t_ns}/${t_name}.js`,
       };
 
-      t_path = `client/template/${t_ns}`;
+      t_path = `client/templates/${t_ns}`;
     }
 
     const result = await file_exists(t_list);
