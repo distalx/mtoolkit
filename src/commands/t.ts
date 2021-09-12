@@ -5,6 +5,8 @@ const fs = require('fs');
 const path = require('path');
 const _template = require('../templates/t.js');
 
+const TEMPLATE_BASE_PATH = 'client/templates';
+
 const file_exists = async (t_list: any) => {
   let result: boolean[] = [];
 
@@ -12,6 +14,28 @@ const file_exists = async (t_list: any) => {
     result.push(fs.existsSync(value));
   }
   return result;
+};
+
+const generate_template_list = (t_name: String, t_ns: String | undefined) => {
+  if (t_ns == undefined) {
+    return {
+      html: `${TEMPLATE_BASE_PATH}/${t_name}/${t_name}.html`,
+      js: `${TEMPLATE_BASE_PATH}/${t_name}/${t_name}.js`,
+    };
+  } else {
+    return {
+      html: `${TEMPLATE_BASE_PATH}/${t_ns}/${t_name}.html`,
+      js: `${TEMPLATE_BASE_PATH}/${t_ns}/${t_name}.js`,
+    };
+  }
+};
+
+const generate_template_path = (t_name: String, t_ns: String | undefined) => {
+  if (t_ns == undefined) {
+    return `${TEMPLATE_BASE_PATH}/${t_name}`;
+  } else {
+    return `${TEMPLATE_BASE_PATH}/${t_ns}`;
+  }
 };
 
 export default class T extends Command {
@@ -39,33 +63,23 @@ export default class T extends Command {
       this.error('please provide a valid template name');
     }
 
-    // todo : check if `template namespace` is valid or not
+    // TODO : check if `template namespace` is valid or not
 
-    // generate template list and template path
-    let t_list: any, t_path: string;
-    if (t_ns == undefined) {
-      t_list = {
-        html: `client/templates/${t_name}/${t_name}.html`,
-        js: `client/templates/${t_name}/${t_name}.js`,
-      };
-      t_path = `client/templates/${t_name}`;
-    } else {
-      t_list = {
-        html: `client/templates/${t_ns}/${t_name}.html`,
-        js: `client/templates/${t_ns}/${t_name}.js`,
-      };
+    // generate template list
+    const t_list = generate_template_list(t_name, t_ns);
+    // generate template path
+    const t_path = generate_template_path(t_name, t_ns);
 
-      t_path = `client/templates/${t_ns}`;
-    }
-
+    // check if templates exists already.
+    // throw an error if template exists.
     const result = await file_exists(t_list);
     if (result.some((item: boolean) => item == true)) {
       this.error('file already exists!');
     }
 
-    // prompt user about new file information
+    // prompt user about new file information.
     this.log(`The following list of files will be created:`);
-
+    // prompt list of new files.
     for (const [key, value] of Object.entries(t_list)) {
       this.log(chalk.green(value));
     }
@@ -81,10 +95,10 @@ export default class T extends Command {
       },
     ]);
 
-    // todo: why err?
+    // TODO : why err?
     const { continue: boolean } = response;
 
-    // exit if user declines.
+    // exit the program if user declines.
     if (!response.continue) {
       return;
     }
@@ -101,7 +115,7 @@ export default class T extends Command {
         const content = _template[key](t_name);
         fs.writeFile(value, content, (err: any) => {
           if (err) throw this.error(err);
-          console.log('Created file: ', value);
+          this.log('Created file: ', value);
           return true;
         });
       }
