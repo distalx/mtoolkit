@@ -19,7 +19,7 @@ $ npm install -g mtoolkit
 $ mtk COMMAND
 running command...
 $ mtk (-v|--version|version)
-mtoolkit/0.0.1 linux-x64 node-v16.7.0
+mtoolkit/0.0.2 linux-x64 node-v16.7.0
 $ mtk --help [COMMAND]
 USAGE
   $ mtk COMMAND
@@ -66,5 +66,5 @@ OPTIONS
   -n, --name=name  name to print
 ```
 
-_See code: [src/commands/t.ts](https://github.com/distalx/mtoolkit/blob/v0.0.1/src/commands/t.ts)_
+_See code: [src/commands/t.ts](https://github.com/distalx/mtoolkit/blob/v0.0.2/src/commands/t.ts)_
 <!-- commandsstop -->
