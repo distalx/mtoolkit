@@ -29,6 +29,7 @@ USAGE
 # Commands
 <!-- commands -->
 * [`mtk help [COMMAND]`](#mtk-help-command)
+* [`mtk init [FILE]`](#mtk-init-file)
 * [`mtk t T_NAME [T_NS]`](#mtk-t-t_name-t_ns)
 
 ## `mtk help [COMMAND]`
@@ -47,6 +48,22 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.3/src/commands/help.ts)_
+
+## `mtk init [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ mtk init [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/init.ts](https://github.com/distalx/mtoolkit/blob/v0.0.2/src/commands/init.ts)_
 
 ## `mtk t T_NAME [T_NS]`
 
